@@ -1,7 +1,11 @@
 package com.example.talent_api.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
 
 @Document(collection = "job_listings")
 public class JobListing {
@@ -16,6 +20,7 @@ public class JobListing {
     private String postedBy; // The ID of the hiring manager
     private double salary;
     private boolean deleted = false;
+    private List<String> applicationIds = new ArrayList<>();
 
     public JobListing() {}
 
@@ -91,6 +96,17 @@ public class JobListing {
 
     public void setDeleted(boolean deleted) {
         this.deleted = deleted;
+    }
+    public List<String> getApplicationIds(){
+
+        return applicationIds;
+
+    }
+
+    public void setApplicationIds(List<String> applicationIds){
+
+        this.applicationIds=applicationIds;
+
     }
 
 }
